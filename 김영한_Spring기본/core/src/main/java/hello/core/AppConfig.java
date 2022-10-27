@@ -1,5 +1,6 @@
 package hello.core;
 
+import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
@@ -13,7 +14,7 @@ public class AppConfig {
     }
 
     public OrderService orderService() {
-        return new OrderServiceImpl();
+        return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
     }
 }
 
